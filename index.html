@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReportaBolivia</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="encabezado">
+      <h1 class="marca">ReportaBolivia</h1>
+    </header>
+
+    <main>
+      <!-- Pantalla 1: Nuevo reporte -->
+      <section id="vista-nuevo" class="vista">
+        <h2>Nuevo reporte</h2>
+
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" rows="4" placeholder="Describe el problema"></textarea>
+
+        <span class="etiqueta">Categoría</span>
+        <div id="categorias" class="chips"></div>
+
+        <button type="button" id="btn-ubicacion" class="btn btn-borde">Usar mi ubicación</button>
+        <button type="button" id="btn-foto" class="btn btn-punteado">Agregar foto (opcional)</button>
+        <input type="file" id="foto" accept="image/*" hidden>
+
+        <p id="mensaje" class="mensaje" role="status"></p>
+        <button type="button" id="btn-enviar" class="btn btn-principal">Enviar reporte</button>
+      </section>
+
+      <!-- Pantalla 2: Lista de reportes -->
+      <section id="vista-lista" class="vista" hidden>
+        <h2>Reportes</h2>
+        <div id="lista"></div>
+        <button type="button" id="btn-ir-nuevo" class="btn btn-principal">Nuevo reporte</button>
+      </section>
+
+      <!-- Pantalla 3: Administración -->
+      <section id="vista-admin" class="vista" hidden>
+        <h2>Administración</h2>
+        <div id="admin-contenido"></div>
+      </section>
+    </main>
+
+    <nav class="menu" aria-label="Navegación principal">
+      <button type="button" data-vista="nuevo" class="activo">Nuevo</button>
+      <button type="button" data-vista="lista">Reportes</button>
+      <button type="button" data-vista="admin">Admin</button>
+    </nav>
+  </div>
+
+  <!-- El orden importa: primero los datos, luego la lógica -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

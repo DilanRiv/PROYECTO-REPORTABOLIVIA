@@ -1,0 +1,183 @@
+:root {
+  --fondo: #F7F5F0;
+  --verde: #1B6B4A;
+  --verde-claro: #E6F2EC;
+  --texto: #1C2530;
+  --gris: #5B6572;
+  --borde: #E2DED3;
+  --borde-fuerte: #8A8F96;
+  --ambar: #F6E3B8;
+  --azul: #DCE8F5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+/* Contenedor tipo celular, centrado en pantallas grandes */
+.app {
+  max-width: 420px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.encabezado {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--borde);
+}
+.marca {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  color: var(--verde);
+}
+
+main { flex: 1; padding: 20px; }
+.vista[hidden] { display: none; }
+h2 { margin: 0 0 16px; font-size: 20px; }
+
+label, .etiqueta {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+textarea, select {
+  width: 100%;
+  padding: 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--texto);
+  border: 1px solid var(--borde-fuerte);
+  border-radius: 6px;
+  background: #fff;
+}
+textarea { resize: vertical; }
+
+/* Botones */
+.btn {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  font: inherit;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn-principal {
+  background: var(--verde);
+  border: 1px solid var(--verde);
+  color: #fff;
+  font-weight: bold;
+}
+.btn-principal:hover { background: #155539; }
+.btn-borde { background: #fff; border: 1px solid var(--borde-fuerte); color: var(--texto); }
+.btn-punteado { background: #fff; border: 1px dashed var(--borde-fuerte); color: var(--gris); }
+.btn-ok { border-color: var(--verde); color: var(--verde); }
+
+/* Categorías */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--texto);
+  background: #fff;
+  border: 1px solid var(--borde-fuerte);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.chip.activo {
+  background: var(--verde-claro);
+  border: 2px solid var(--verde);
+  color: var(--verde);
+}
+
+/* Tarjetas de la lista */
+.tarjeta {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 12px;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.tarjeta:hover { border-color: var(--verde); }
+.tarjeta strong { display: block; font-size: 15px; }
+.tarjeta .sub { display: block; margin: 4px 0 8px; font-size: 12px; color: var(--gris); }
+
+/* Etiquetas de estado */
+.estado {
+  display: inline-block;
+  padding: 3px 10px;
+  font-size: 12px;
+  border-radius: 999px;
+}
+.estado-pendiente { background: var(--ambar); }
+.estado-en-revision { background: var(--azul); }
+.estado-atendido { background: var(--verde-claro); }
+
+/* Administración */
+.foto-reporte {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: var(--gris);
+  background: #E2DED3;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.foto-reporte img { width: 100%; height: 100%; object-fit: cover; }
+.admin-titulo { margin: 0; font-size: 15px; }
+.admin-sub { margin: 6px 0 0; font-size: 12px; color: var(--gris); }
+.vacio { color: var(--gris); font-size: 14px; }
+
+.mensaje { min-height: 18px; margin: 12px 0 0; font-size: 13px; color: var(--verde); }
+.mensaje.error { color: #B3261E; }
+
+/* Menú inferior */
+.menu {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  background: #fff;
+  border-top: 1px solid var(--borde);
+}
+.menu button {
+  flex: 1;
+  padding: 14px 0;
+  font: inherit;
+  font-size: 13px;
+  color: var(--gris);
+  background: none;
+  border: 0;
+  border-top: 3px solid transparent;
+  cursor: pointer;
+}
+.menu button.activo {
+  color: var(--verde);
+  font-weight: bold;
+  border-top-color: var(--verde);
+}
+
+@media (min-width: 600px) {
+  .app { margin: 24px auto; min-height: calc(100vh - 48px); border: 1px solid var(--borde); border-radius: 16px; overflow: hidden; }
+}
